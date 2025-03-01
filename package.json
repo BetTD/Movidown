@@ -1,0 +1,17 @@
+{
+  "name": "movistar-block-check",
+  "version": "1.0.0",
+  "main": "metrics-json.js",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node metrics-json.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "type": "module",
+  "author": "BetTD",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
