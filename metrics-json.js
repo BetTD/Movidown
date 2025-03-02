@@ -7,11 +7,25 @@ const port = 3000;
 let cachedKumaStatus = true;
 let cachedData = [];
 
-console.log(AUTH_STRING);
+function snakeToCamel(s) {
+    return s.replace(/(_\w)/g, function(m){return m[1].toUpperCase();});
+}
 
 app.get("/metrics", (req, res) => {
     res.set("Content-Type", "application/json");
     res.set("Accept", "application/json");
+
+    if (cachedData.length === 0) {
+        res.status(500);
+        res.send({
+            success: false,
+            data: {
+                error: "No data available yet."
+            }
+        });
+        return;
+    }
+
     if (!cachedKumaStatus) {
         res.status(500);
         res.send({
@@ -32,32 +46,52 @@ app.get("/metrics", (req, res) => {
     });
 });
 
-setInterval(() => {
+setTimeout(function pull() {
     console.log("initiating monitor update process")
     fetch("http://192.168.0.12:3001/metrics", {
         headers: {
-            "Authorization": Buffer.from(`:${process.env.API_TOKEN}`).toString('base64'),
+            "Authorization": `Basic ${AUTH_STRING}`,
         }
     })
-        .then((res) => {
-            console.log(res);
-            return res.text();
-        })
+        .then((res) => res.text())
         .then((text) => {
-            console.log("got response: " + text);
             const lines = text.split("\n");
             const monitors = [];
             for (let line of lines) {
                 if (!line.startsWith("monitor_status{")) {
-                    return;
+                    continue;
                 }
 
                 const monitorData = {};
-                const obj = line.substring(line.indexOf("{"));
+                const obj = line.substring(line.indexOf("{"), line.indexOf("}") + 1);
                 const props = obj.substring(1, obj.length - 1).split(",");
+
                 for (let prop of props) {
-                    const [ k, v ] = prop.split("=");
-                    monitorData[k] = v.substring(1, v.length - 1);
+                    let [ k, v ] = prop.split("=");
+                    k = snakeToCamel(k);
+                    v = v.substring(1, v.length - 1);
+
+                    if (v === "null") {
+                        v = null;
+                    }
+
+                    monitorData[k] = v;
+                }
+
+                if (monitorData["monitorHostname"] === null) {
+                    continue;
+                }
+
+                switch (line.substring(line.length - 1)) {
+                    case "0":
+                        monitorData["monitorStatus"] = "offline";
+                        break;
+                    case "1":
+                        monitorData["monitorStatus"] = "online";
+                        break;
+                    default:
+                        monitorData["monitorStatus"] = "unknown";
+                        break;
                 }
 
                 console.log(monitorData);
@@ -71,7 +105,8 @@ setInterval(() => {
             console.error(err);
             cachedKumaStatus = false;
         });
-}, 15000);
+    setTimeout(pull, 15000);
+}, 0);
 
 app.listen(port);
 console.log("launched web endpoint")
