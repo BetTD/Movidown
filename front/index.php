@@ -1,13 +1,15 @@
 <!doctype html>
 <html lang="es">
 <head>
+    <meta charset="UTF-8">
     <title>Movidown</title>
     <meta property='og:title'  content="Movidown">
     <meta name='twitter:title' content="Movidown">
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="¿Quieres saber si Movistar está bloqueando las IPs y webs de Cloudflare otra vez? ¡Esta es tu web!">
-    <meta property="og:image"  content="./img/movidown.png">
+    <meta property='og:description' content="¿Quieres saber si Movistar está bloqueando las IPs y webs de Cloudflare otra vez? ¡Esta es tu web!">
+    <meta name='twitter:description' content="¿Quieres saber si Movistar está bloqueando las IPs y webs de Cloudflare otra vez? ¡Esta es tu web!">
+    <meta property="og:image" content="./img/movidown.png">
     <meta name="twitter:image" content="./img/movidown.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
