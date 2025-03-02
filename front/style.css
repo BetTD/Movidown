@@ -63,6 +63,10 @@ span.status-remark.warn {
     background-color: rgba(241, 112, 9, 0.16);
 }
 
+span.mini-status.loading {
+    color: #595959;
+}
+
 span.mini-status.online, .monitor-status.online {
     color: #4ace23;
 }
