@@ -102,6 +102,7 @@ div.monitor {
     border: 1px solid #2a2a2a;
     padding: 16px;
     font-family: "DM Mono", monospace;
+    font-weight: 500;
 }
 
 div.monitor .monitor-status {
@@ -110,10 +111,12 @@ div.monitor .monitor-status {
 
 div.monitor.online {
     border-color: rgba(74, 206, 35, 0.5);
+    background: linear-gradient(45deg, #152115, rgb(74 206 35 / 10%));
 }
 
 div.monitor.offline {
     border-color: rgba(211, 25, 25, 0.5);
+    background: linear-gradient(45deg, #211515, rgb(211 25 25 / 10%));
 }
 
 footer {
