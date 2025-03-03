@@ -9,6 +9,16 @@ h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
 
+a {
+    color: #429bff;
+    text-decoration: none;
+    transition: 0.1s color ease-in-out;
+}
+
+a:hover {
+    color: #b8daff;
+}
+
 .darker {
     color: #656565;
 }
@@ -26,8 +36,9 @@ nav {
     right: 0;
     background-color: rgba(0, 0, 0, 0.47);
     backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(15px);
     z-index: 1000;
+    border-bottom: 1px solid rgb(0 0 0 / 10%);
 }
 
 header {
@@ -84,8 +95,16 @@ main {
     min-height: 300px;
 }
 
-main h2 {
+main section:not(:last-child) {
+    margin-bottom: 2rem;
+}
+
+main h2, main h3 {
     margin-bottom: 1rem;
+}
+
+main h3:not(:first-child) {
+    margin-top: 2rem;
 }
 
 div.monitors-grid {
