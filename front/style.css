@@ -111,12 +111,16 @@ div.monitor .monitor-status {
 
 div.monitor.online {
     border-color: rgba(74, 206, 35, 0.5);
-    background: linear-gradient(45deg, #152115, rgb(74 206 35 / 10%));
+    /*background: linear-gradient(45deg, #152115, rgb(74 206 35 / 10%));*/
+    background: rgb(33, 33, 33);
+    background: linear-gradient(60deg, rgb(27, 33, 26) 0%, rgb(27, 33, 26) 50%, rgb(14 59 10) 100%);
 }
 
 div.monitor.offline {
     border-color: rgba(211, 25, 25, 0.5);
-    background: linear-gradient(45deg, #211515, rgb(211 25 25 / 10%));
+    /*background: linear-gradient(45deg, #211515, rgb(211 25 25 / 10%));*/
+    background: rgb(33, 33, 33);
+    background: linear-gradient(60deg, rgb(33, 26, 26) 0%, rgb(33, 26, 26) 50%, rgb(59, 10, 10) 100%);
 }
 
 footer {
