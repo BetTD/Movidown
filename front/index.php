@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>Movidown</title>
-    <meta property='og:title'  content="Movidown">
-    <meta name='twitter:title' content="Movidown">
+    <meta property="og:title"  content="Movidown">
+    <meta name="twitter:title" content="Movidown">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="¿Quieres saber si Movistar está bloqueando las IPs y webs de Cloudflare otra vez? ¡Esta es tu web!">
-    <meta property='og:description' content="¿Quieres saber si Movistar está bloqueando las IPs y webs de Cloudflare otra vez? ¡Esta es tu web!">
-    <meta name='twitter:description' content="¿Quieres saber si Movistar está bloqueando las IPs y webs de Cloudflare otra vez? ¡Esta es tu web!">
+    <meta property="og:description" content="¿Quieres saber si Movistar está bloqueando las IPs y webs de Cloudflare otra vez? ¡Esta es tu web!">
+    <meta name="twitter:description" content="¿Quieres saber si Movistar está bloqueando las IPs y webs de Cloudflare otra vez? ¡Esta es tu web!">
     <meta property="og:image" content="./img/movidown.png">
     <meta name="twitter:image" content="./img/movidown.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -112,6 +112,11 @@
     <footer>
         <p>
             &copy; 2025 BetTD • Este sitio web no está afiliado con Movistar, Telefónica de España S.A.U., Cloudflare Inc. o cualquier otra empresa relacionada.
+        </p>
+        <p>
+            <a href="https://github.com/BetTD/Movidown" target="_blank" referrerpolicy="no-referrer">
+                <i class="fa-brands fa-github"></i> Código fuente en GitHub
+            </a>
         </p>
     </footer>
 </body>
