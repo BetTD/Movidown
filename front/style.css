@@ -55,6 +55,19 @@ header h1 {
     font-weight: 900;
 }
 
+.alert {
+    background-color: #520000;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 2rem;
+    border-left: 8px solid #881212;
+    font-size: 13pt;
+}
+
+header .alert {
+    margin-top: 24px;
+}
+
 span.status-remark {
     background-color: #181818;
     border-radius: 8px;
@@ -111,6 +124,10 @@ div.monitors-grid {
     display: grid;
     gap: 12px;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
+
+code {
+    font-family: "DM Mono", monospace;
 }
 
 div.monitor {

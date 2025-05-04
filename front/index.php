@@ -14,11 +14,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=20250504">
     <link rel="stylesheet" href="./fa/css/all.css">
     <link rel="icon" type="image/png" href="./img/favicon.png">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="fetch.js"></script>
+    <script src="fetch.js?v=20250504"></script>
 </head>
 <body>
     <nav>
@@ -38,6 +38,16 @@
         <h1 id="status-header">
             <span class="status-remark">Cargando</span> estado...
         </h1>
+        <div class="alert">
+            <p>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+                Es muy probable que esta página ya no refleje el estado correcto en tiempo real. Me he cansado de los
+                cortes constantes por culpa de Movistar, LaLiga, y todas las entidades que están detrás de esto, así que
+                me he montado una VPN para poder acceder a los servicios de Cloudflare durante <code>#laligagate</code>.
+                Si has venido a mirar esta página, es probable que sea porque no te va medio internet. En ese caso,
+                te recomiendo que uses una VPN.
+            </p>
+        </div>
     </header>
     <main>
         <section id="monitors">
