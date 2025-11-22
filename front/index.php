@@ -38,7 +38,7 @@
         <h1 id="status-header">
             <span class="status-remark">Cargando</span> estado...
         </h1>
-        <div class="alert">
+        <!--<div class="alert">
             <p>
                 <i class="fa-solid fa-triangle-exclamation"></i>
                 Es muy probable que esta página ya no refleje el estado correcto en tiempo real. Me he cansado de los
@@ -47,7 +47,7 @@
                 Si has venido a mirar esta página, es probable que sea porque no te va medio internet. En ese caso,
                 te recomiendo que uses una VPN.
             </p>
-        </div>
+        </div>-->
     </header>
     <main>
         <section id="monitors">
@@ -99,6 +99,10 @@
                 bloqueando páginas oficiales de clubs de fútbol de LaLiga, e incluso páginas de Telefónica, uno de los
                 "partners estratégicos" de LaLiga. Algo que se está diciendo mucho estos días es que están matando
                 moscas a cañonazos.
+            </p>
+            <h3>¿Cómo accedo a las webs bloqueadas?</h3>
+            <p>
+                Usa un servicio de VPN, preferiblemente que no guarde logs, como Mullvad o Windscribe.
             </p>
             <h3>¿Dónde me puedo informar más al respecto?</h3>
             <p>
