@@ -48,7 +48,7 @@ app.get("/metrics", (req, res) => {
 
 setTimeout(function pull() {
     console.log("initiating monitor update process")
-    fetch("http://192.168.0.12:3001/metrics", {
+    fetch("http://10.20.0.12:3001/metrics", {
         headers: {
             "Authorization": `Basic ${AUTH_STRING}`,
         }
