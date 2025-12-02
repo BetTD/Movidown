@@ -80,14 +80,17 @@ function render() {
         case "some":
             headerText.html(`<span class="status-remark warn">Sí,</span> Movistar está bloqueando Cloudflare parcialmente.`);
             miniStatus.html(`¿Está Movistar bloqueando Cloudflare? <span class="mini-status warn"><i class="fa-solid fa-warning"</span>`);
+            header.attr("class", "offline");
             break;
         case true:
             headerText.html(`<span class="status-remark online">No,</span> Movistar no está bloqueando Cloudflare.`);
             miniStatus.html(`¿Está Movistar bloqueando Cloudflare? <span class="mini-status online"><i class="fa-solid fa-xmark-circle"></i></span>`);
+            header.attr("class", "online");
             break;
         case false:
             headerText.html(`<span class="status-remark offline">Sí,</span> Movistar está bloqueando Cloudflare totalmente.`);
             miniStatus.html(`¿Está Movistar bloqueando Cloudflare? <span class="mini-status offline"><i class="fa-solid fa-check-circle"></i></span>`);
+            header.attr("class", "offline");
             break;
     }
 
@@ -99,15 +102,12 @@ function render() {
         switch (monitor.status) {
             case "online":
                 statusIcon = `<i class="fa-solid fa-check-circle"></i>`;
-                header.attr("class", "online");
                 break;
             case "offline":
                 statusIcon = `<i class="fa-solid fa-xmark-circle"></i>`;
-                header.attr("class", "offline");
                 break;
             default:
                 statusIcon = `<i class="fa-solid fa-question"></i>`;
-                header.removeAttr("class");
         }
 
         // extract the text within parentheses
