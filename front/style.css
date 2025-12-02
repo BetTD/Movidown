@@ -99,7 +99,7 @@ header {
 }
 
 header.online {
-    background: linear-gradient(60deg,rgba(13, 17, 28, 1) 0%, rgba(4, 66, 26, 1) 100%);
+    background: linear-gradient(60deg,rgba(13, 17, 28, 1) 0%, rgb(4, 66, 29) 100%);
 }
 
 header.offline {
@@ -156,7 +156,7 @@ span.mini-status.loading {
 }
 
 span.mini-status.online, .monitor-status.online {
-    color: #4ace23;
+    color: #23ce5f;
 }
 
 span.mini-status.offline, .monitor-status.offline {
@@ -226,11 +226,11 @@ div.monitor .monitor-status.online, div.monitor .monitor-status.offline {
 }
 
 div.monitor.online {
-    border-color: rgb(53, 222, 7);
-    box-shadow: 0 0 4px rgba(79, 248, 31, 0.25);
+    border-color: #23ce5f;
+    box-shadow: 0 0 4px rgba(31, 248, 107, 0.25);
     /*background: linear-gradient(45deg, #152115, rgb(74 206 35 / 10%));*/
     background: rgb(7, 10, 32);
-    background: linear-gradient(60deg, rgba(0, 0, 0, 0) 0% 0%, rgba(27, 33, 26, 0.5) 50%, rgb(14 59 10) 100%);
+    background: linear-gradient(60deg, rgba(0, 0, 0, 0) 0% 0%, rgba(26, 33, 29, 0.5) 50%, rgb(10, 59, 33) 100%);
 }
 
 div.monitor.offline {

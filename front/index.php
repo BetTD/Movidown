@@ -1,3 +1,6 @@
+<?php
+$commitHash = exec("git log --pretty=\"%h\" -n1 HEAD");
+?>
 <!doctype html>
 <html lang="es">
 <head>
@@ -14,11 +17,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20251202">
+    <link rel="stylesheet" href="style.css?v=<?=$commitHash?>">
     <link rel="stylesheet" href="./fa/css/all.css">
     <link rel="icon" type="image/png" href="./img/favicon.png">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="fetch.js?v=20251202"></script>
+    <script src="fetch.js?v=<?=$commitHash?>"></script>
 </head>
 <body>
     <nav>
