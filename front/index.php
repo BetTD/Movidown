@@ -13,31 +13,39 @@
     <meta name="twitter:image" content="./img/movidown.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=20250504">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Code:ital,wght@0,300..800;1,300..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=20251202">
     <link rel="stylesheet" href="./fa/css/all.css">
     <link rel="icon" type="image/png" href="./img/favicon.png">
     <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
-    <script src="fetch.js?v=20250504"></script>
+    <script src="fetch.js?v=20251202"></script>
 </head>
 <body>
     <nav>
-        <div class="navbar-section">
-            <p id="mini-status">
-                ¿Está Movistar bloqueando Cloudflare?
-                <span class="mini-status loading">
+        <div class="flex max-width">
+            <div class="navbar-section">
+                <p id="mini-status">
+                    ¿Está Movistar bloqueando Cloudflare?
+                    <span class="mini-status loading">
                     <i class="fa-solid fa-refresh fa-spin"></i>
                 </span>
-            </p>
-        </div>
-        <div class="navbar-section">
-            <p class="darker"><i class="fa-solid fa-refresh fa-spin"></i> <span id="refresh-label">Esta página se recarga automáticamente</span></p>
+                </p>
+            </div>
+            <div class="navbar-section">
+                <p class="darker"><i class="fa-solid fa-refresh fa-spin"></i> <span id="refresh-label">Esta página se recarga automáticamente</span></p>
+            </div>
         </div>
     </nav>
     <header>
-        <h1 id="status-header">
-            <span class="status-remark">Cargando</span> estado...
-        </h1>
+        <div class="max-width">
+            <h1 id="status-header">
+                <span class="status-remark">Cargando</span> estado...
+            </h1>
+            <div class="floating-icon">
+                <i class="fa-solid fa-signal"></i>
+            </div>
+        </div>
+
         <!--<div class="alert">
             <p>
                 <i class="fa-solid fa-triangle-exclamation"></i>
@@ -49,7 +57,7 @@
             </p>
         </div>-->
     </header>
-    <main>
+    <main class="max-width">
         <section id="monitors">
             <h2>Estado de las direcciones IP</h2>
             <div class="monitors-grid">
@@ -73,7 +81,7 @@
                 </li>
                 <li>
                     <strong>Grupo MasMóvil (Yoigo, MasMóvil, Pepephone):</strong> Bloquean el acceso a los puertos 80 y
-                    443 de las IPs de Cloudflare. No tan agresivo, pero sigue siendo un bloqueo.
+                    443 de las direcciones IP de Cloudflare. No tan agresivo, pero sigue siendo un bloqueo.
                 </li>
                 <li>
                     <strong>Orange y Vodafone:</strong> Bloquean "solo el acceso web directo a la IP sin especificar
@@ -93,7 +101,7 @@
                 Fácil, <strong>el fútbol.</strong> Vale, no es tan fácil. Una sentencia judicial de hace relativamente
                 poco le ha facilitado a LaLiga la posibilidad de ordenar a las compañías de telecomunicaciones a
                 bloquear sitios web que emitían fútbol de forma ilegal. El problema es que, en vez de bloquear solo esos
-                sitios, debido a la forma en la que Cloudflare funciona, al bloquear las IPs de esos sitios web pirata,
+                sitios, debido a la forma en la que Cloudflare funciona, al bloquear las IP de esos sitios web pirata,
                 también están afectando a muchísimas otras webs que usan Cloudflare y que no tienen
                 <strong>absolutamente nada que ver con la piratería.</strong> Es más, algo irónico es que están
                 bloqueando páginas oficiales de clubs de fútbol de LaLiga, e incluso páginas de Telefónica, uno de los
@@ -102,7 +110,14 @@
             </p>
             <h3>¿Cómo accedo a las webs bloqueadas?</h3>
             <p>
-                Usa un servicio de VPN, preferiblemente que no guarde logs, como Mullvad o Windscribe.
+                Usa un servicio de VPN, preferiblemente que no guarde logs, como Mullvad o Windscribe. Es la forma más
+                sencilla y económica de saltarse los bloqueos, especialmente en zonas donde las únicas telecos son una
+                o varias de las grandes. Telefónica, por ejemplo, disfruta de un monopolio (no por definición pero sí)
+                en zonas quizá menos pobladas, como zonas rurales o más alejadas de un núcleo urbano.
+            </p>
+            <p>
+                Si prefieres tener el control total de la VPN, puedes contratar un servidor virtual (comúnmente
+                conocidos como VPS) y montarte tu propia VPN con Wireguard
             </p>
             <h3>¿Dónde me puedo informar más al respecto?</h3>
             <p>
@@ -110,6 +125,12 @@
                 proporcionando algunas formas de acceder a los servicios bloqueados. Algunos de ellos son:
             </p>
             <ul>
+                <li>
+                    <a href="https://hayahora.futbol/" target="_blank" referrerpolicy="no-referrer">
+                        "Hay ahora fútbol?", otra página dedicada a la monitorización de direcciones IP bloqueadas, pero
+                        desde más proveedores de internet.
+                    </a>
+                </li>
                 <li>
                     <a href="https://x.com/search?q=%23bloqueoterceros" target="_blank" referrerpolicy="no-referrer">
                         Búsqueda de Twitter/X con el hashtag #bloqueoterceros

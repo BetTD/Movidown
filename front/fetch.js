@@ -1,4 +1,5 @@
 let overallStatus = true;
+/** @type {{ name: string, status: string }[]} */
 let monitors = [];
 
 function getCurrentUrl() {
@@ -71,6 +72,7 @@ function fetchData() {
 }
 
 function render() {
+    const header = $("header");
     const headerText = $("#status-header");
     const miniStatus = $("#mini-status");
 
@@ -97,16 +99,22 @@ function render() {
         switch (monitor.status) {
             case "online":
                 statusIcon = `<i class="fa-solid fa-check-circle"></i>`;
+                header.attr("class", "online");
                 break;
             case "offline":
                 statusIcon = `<i class="fa-solid fa-xmark-circle"></i>`;
+                header.attr("class", "offline");
                 break;
             default:
                 statusIcon = `<i class="fa-solid fa-question"></i>`;
+                header.removeAttr("class");
         }
 
+        // extract the text within parentheses
+        let monitorName = monitor.name.replace(/\(([^)]+)\)/, '<span class="monitor-remark">($1)</span>');
+
         monitorsString += `<div class="monitor ${monitor.status}">
-            <div class="monitor-name">${monitor.name}</div>
+            <div class="monitor-name">${monitorName}</div>
             <div class="monitor-status ${monitor.status}">${statusIcon}</div>
         </div>
 `;
