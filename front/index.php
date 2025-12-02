@@ -1,5 +1,6 @@
 <?php
 $commitHash = exec("git log --pretty=\"%h\" -n1 HEAD");
+$hostName = preg_split("/\./", exec("hostname"))[0];
 ?>
 <!doctype html>
 <html lang="es">
@@ -155,6 +156,10 @@ $commitHash = exec("git log --pretty=\"%h\" -n1 HEAD");
             <a href="https://github.com/BetTD/Movidown" target="_blank" referrerpolicy="no-referrer">
                 <i class="fa-brands fa-github"></i> Código fuente en GitHub
             </a>
+            •
+            <i class="fa-solid fa-code-branch"></i> <code><?=$commitHash?></code>
+            •
+            <i class="fa-solid fa-server"></i> <code><?=$hostName?></code>
         </p>
     </footer>
 </body>
