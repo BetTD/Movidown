@@ -149,18 +149,25 @@ $hostName = preg_split("/\./", exec("hostname"))[0];
         </section>
     </main>
     <footer>
-        <p>
-            &copy; 2025 BetTD • Este sitio web no está afiliado con Movistar, Telefónica de España S.A.U., Cloudflare Inc. o cualquier otra empresa relacionada.
-        </p>
-        <p>
-            <a href="https://github.com/BetTD/Movidown" target="_blank" referrerpolicy="no-referrer">
-                <i class="fa-brands fa-github"></i> Código fuente en GitHub
-            </a>
-            •
-            <i class="fa-solid fa-code-branch"></i> <code><?=$commitHash?></code>
-            •
-            <i class="fa-solid fa-server"></i> <code><?=$hostName?></code>
-        </p>
+        <div class="max-width">
+            <p>
+                &copy; 2025 BetTD • Movistar es una marca registrada de Telefónica, S.A. • Cloudflare&reg; es una marca registrada
+                de Cloudflare, Inc.
+            </p>
+            <p>
+                Este sitio web no está relacionado, afiliado ni respaldado a ninguna de las marcas o empresas
+                mencionadas.
+            </p>
+            <p>
+                <a href="https://github.com/BetTD/Movidown" target="_blank" referrerpolicy="no-referrer">
+                    <i class="fa-brands fa-github"></i> Código fuente en GitHub
+                </a>
+                •
+                <i class="fa-solid fa-code-branch"></i> <code><?=$commitHash?></code>
+                •
+                <i class="fa-solid fa-server"></i> <code><?=$hostName?></code>
+            </p>
+        </div>
     </footer>
 </body>
 </html>
