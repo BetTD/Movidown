@@ -133,6 +133,9 @@ setTimeout(function pull() {
         })
         .catch((err) => {
             console.error(err);
+            if (err instanceof TypeError && err.cause.syscall === 'connect') {
+                isKumaDown = true;
+            }
             cachedKumaStatus = false;
         });
     setTimeout(pull, 15000);
