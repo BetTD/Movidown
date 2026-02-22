@@ -66,7 +66,7 @@ setTimeout(function pull() {
         }
     })
         .then((res) => {
-            if (res.status === 502) {
+            if (res.status !== 200) {
                 isKumaDown = true;
                 return;
             }
