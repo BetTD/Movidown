@@ -66,9 +66,9 @@ setTimeout(function pull() {
         }
     })
         .then((res) => {
-            if (res.status !== 200) {
+            if (!res.ok) {
                 isKumaDown = true;
-                return;
+                throw new Error('uptime kuma is down');
             }
 
             isKumaDown = false;
