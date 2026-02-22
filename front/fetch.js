@@ -37,12 +37,14 @@ function fetchData() {
                         '</p>' +
                         '<pre>' + JSON.stringify(data['data']) + '</pre>' +
                         '</div>');
+                    isAlertActive = true;
                 }
                 return;
             }
 
             if (isAlertActive) {
                 alertContainer.html('');
+                isAlertActive = false;
             }
 
             const mons = data.data.monitors;

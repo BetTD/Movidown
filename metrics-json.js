@@ -84,6 +84,7 @@ setTimeout(function pull() {
                 return;
             }
 
+            isKumaDown = false;
             const lines = text.split("\n");
             const monitors = [];
             for (let line of lines) {
