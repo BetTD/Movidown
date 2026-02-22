@@ -21,7 +21,7 @@ app.get("/metrics", (req, res) => {
         res.send({
             success: false,
             data: {
-                error: "Received 502 Bad Gateway when contacting Uptime Kuma instance.",
+                error: "Received non-OK response when contacting Uptime Kuma instance.",
             },
         });
         return;
@@ -68,6 +68,7 @@ setTimeout(function pull() {
         .then((res) => {
             if (!res.ok) {
                 isKumaDown = true;
+                cachedData = [];
                 throw new Error('uptime kuma is down');
             }
 
@@ -75,6 +76,14 @@ setTimeout(function pull() {
             return res.text();
         })
         .then((text) => {
+            if (text.startsWith("Migration is in progress")) {
+                isKumaDown = true;
+                cachedKumaStatus = false;
+                cachedData = [];
+                console.error('unable to get data from uptime kuma: migration is in progress');
+                return;
+            }
+
             const lines = text.split("\n");
             const monitors = [];
             for (let line of lines) {
