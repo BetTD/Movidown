@@ -6,6 +6,7 @@ const port = 3000;
 
 let cachedKumaStatus = true;
 let cachedData = [];
+let isKumaDown = false;
 
 function snakeToCamel(s) {
     return s.replace(/(_\w)/g, function(m){return m[1].toUpperCase();});
@@ -15,13 +16,24 @@ app.get("/metrics", (req, res) => {
     res.set("Content-Type", "application/json");
     res.set("Accept", "application/json");
 
+    if (isKumaDown) {
+        res.status(502);
+        res.send({
+            success: false,
+            data: {
+                error: "Received 502 Bad Gateway when contacting Uptime Kuma instance.",
+            },
+        });
+        return;
+    }
+
     if (cachedData.length === 0) {
         res.status(500);
         res.send({
             success: false,
             data: {
-                error: "No data available yet."
-            }
+                error: "No data available yet.",
+            },
         });
         return;
     }
@@ -53,7 +65,15 @@ setTimeout(function pull() {
             "Authorization": `Basic ${AUTH_STRING}`,
         }
     })
-        .then((res) => res.text())
+        .then((res) => {
+            if (res.status === 502) {
+                isKumaDown = true;
+                return;
+            }
+
+            isKumaDown = false;
+            return res.text();
+        })
         .then((text) => {
             const lines = text.split("\n");
             const monitors = [];

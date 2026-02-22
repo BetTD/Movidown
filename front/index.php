@@ -64,6 +64,9 @@ $hostName = preg_split("/\./", exec("hostname"))[0];
     <main class="max-width">
         <section id="monitors">
             <h2>Estado de las direcciones IP</h2>
+            <div id="alert-container">
+
+            </div>
             <div class="monitors-grid">
 
             </div>

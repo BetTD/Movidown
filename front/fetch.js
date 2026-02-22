@@ -1,6 +1,7 @@
 let overallStatus = true;
 /** @type {{ name: string, status: string }[]} */
 let monitors = [];
+let isAlertActive = false;
 
 function getCurrentUrl() {
     let url = window.location.protocol + "//" + window.location.host + window.location.pathname;
@@ -21,11 +22,27 @@ function fetchData() {
     })
         .then((res) => res.json())
         .then((data) => {
+            const alertContainer = $("#alert-container");
             if (!data.success) {
                 console.error("Failed to obtain data.", data);
                 overallStatus = "unknown";
                 monitors = [];
+                if (!isAlertActive) {
+                    alertContainer.html('<div class="alert">' +
+                        '<p>' +
+                        '<i class="fa-solid fa-triangle-exclamation"></i> ' +
+                        'Ha ocurrido un error al obtener el estado. Quizá don Tebas ha bloqueado esta web, o (lo más ' +
+                        'probable) seguramente se esté realizando alguna actualización. Sea lo que sea, volverá a ' +
+                        'funcionar pronto.' +
+                        '</p>' +
+                        '<pre>' + JSON.stringify(data['data']) + '</pre>' +
+                        '</div>');
+                }
                 return;
+            }
+
+            if (isAlertActive) {
+                alertContainer.html('');
             }
 
             const mons = data.data.monitors;

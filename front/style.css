@@ -28,6 +28,13 @@ p {
     line-height: 18pt;
 }
 
+pre {
+    margin: 0;
+    padding: 8px 12px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+}
+
 p:not(:last-child) {
     margin: 0 0 10px;
 }
